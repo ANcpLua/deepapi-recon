@@ -134,6 +134,37 @@ as a fixture, so the three fixes stay honest rather than asserted into existence
 
 ---
 
+## CI — the audit as code scanning
+
+`contract_audit.py` turns those three checks into a security auditor: it runs
+them against a target client and emits **SARIF 2.1.0**, so each violation lands
+as a GitHub code-scanning alert on the offending line. The
+[workflow](.github/workflows/contract-audit.yml) runs the tests, audits the
+naive baseline **and** the shipped client, renders a visual job summary with
+[sarif-tools](https://github.com/microsoft/sarif-tools), and uploads the SARIF.
+
+| target | verdict |
+|---|---|
+| `deepapi_client.py` (shipped) | ✅ clean — honors every rule |
+| `tests/_naive_client.py` (baseline) | 🔴🔴🟠 three findings ↓ |
+
+| sev | rule | location |
+|---|---|---|
+| 🔴 error | `deepapi/idempotency-key-not-reused` | `tests/_naive_client.py:45` |
+| 🔴 error | `deepapi/unbounded-retry-recursion` | `tests/_naive_client.py:59` |
+| 🟠 warning | `deepapi/error-fix-ignored` | `tests/_naive_client.py:62` |
+
+```bash
+python3 contract_audit.py --target tests/_naive_client.py --out results.sarif
+python3 contract_audit.py --target deepapi_client.py          # → clean
+```
+
+> On a **private** repo, code-scanning upload needs GitHub Advanced Security, so
+> that step is best-effort — the job summary and the SARIF + HTML artifacts land
+> regardless.
+
+---
+
 ## Live verification (unauthenticated, $0)
 
 Two probes against production, no key — so nothing bills, and the `401` is the

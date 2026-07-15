@@ -10,5 +10,10 @@ __pycache__/
 # local skills checkout the analyzer walks (see README "Reproduce")
 skills/
 
+# generated audit artifacts (produced by contract_audit.py / CI)
+*.sarif
+sarif-report.html
+audit-summary.md
+
 # JetBrains IDE
 .idea/

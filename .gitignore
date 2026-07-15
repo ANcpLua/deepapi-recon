@@ -9,3 +9,6 @@ __pycache__/
 
 # local skills checkout the analyzer walks (see README "Reproduce")
 skills/
+
+# JetBrains IDE
+.idea/

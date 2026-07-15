@@ -159,12 +159,15 @@ python3 contract_audit.py --target tests/_naive_client.py --out results.sarif
 python3 contract_audit.py --target deepapi_client.py          # → clean
 ```
 
-A committed sample of the job summary and the emitted SARIF lives in
-[`audit/`](audit/) ([SUMMARY.md](audit/SUMMARY.md) · [results.sarif](audit/results.sarif)).
+The three baseline findings are live in the repo's
+[**Security tab**](https://github.com/ANcpLua/deepapi-recon/security/code-scanning)
+(2 high, 1 medium, anchored to `tests/_naive_client.py`). A committed sample of
+the job summary and the emitted SARIF also lives in [`audit/`](audit/)
+([SUMMARY.md](audit/SUMMARY.md) · [results.sarif](audit/results.sarif)).
 
-> On a **private** repo, code-scanning upload needs GitHub Advanced Security, so
-> that step is best-effort — the job summary and the SARIF + HTML artifacts land
-> regardless.
+> Note: code-scanning upload is free on public repos; on a **private** repo it
+> needs GitHub Advanced Security, so the workflow keeps that step best-effort —
+> the job summary and SARIF/HTML artifacts land regardless.
 
 ---
 

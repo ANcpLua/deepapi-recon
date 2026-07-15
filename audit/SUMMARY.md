@@ -1,5 +1,5 @@
-> _Sample of the `contract-audit` job summary. CI regenerates this on every push_
-> _(blocked on this private repo until Actions billing is restored — the workflow is ready)._
+> _Sample of the `contract-audit` job summary — CI regenerates this live on every push
+> ([latest run](https://github.com/ANcpLua/deepapi-recon/actions/workflows/contract-audit.yml))._
 
 ## DeepAPI contract audit
 

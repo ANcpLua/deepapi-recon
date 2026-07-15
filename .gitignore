@@ -1,0 +1,11 @@
+# never commit a key or credits
+.env
+*.key
+DEEPAPI_API_KEY*
+
+# python
+__pycache__/
+*.pyc
+
+# local skills checkout the analyzer walks (see README "Reproduce")
+skills/

@@ -1,0 +1,327 @@
+{
+  "skills_total": 36,
+  "skills_using_deepapi": [
+    {
+      "path": "skills/ops-and-setup/create-readonly-db-role/SKILL.md",
+      "name": "create-readonly-db-role",
+      "desc": "'Provision a hardened SELECT-only Postgres role so AI agents can safely read a production database. Works on Supabase and any Postgres. Use when the user wants ",
+      "deepapi": true
+    },
+    {
+      "path": "skills/ops-and-setup/global-agent-guardrails/SKILL.md",
+      "name": "global-agent-guardrails",
+      "desc": "'One shared denylist of catastrophic shell commands (rm -rf on / or ~, dd/mkfs, sudo rm, fork bombs, curl|sh, git push --force, gh repo delete) enforced as a Pr",
+      "deepapi": true
+    },
+    {
+      "path": "skills/research-and-web/browser-harness/SKILL.md",
+      "name": "browser-harness",
+      "desc": "Direct browser control via CDP. Use when the user wants to automate, scrape, test, or interact with web pages. Connects to the user's already-running Chrome.",
+      "deepapi": true
+    },
+    {
+      "path": "skills/research-and-web/deep-research/SKILL.md",
+      "name": "deep-research",
+      "desc": "'Run a deep, source-backed research query via DeepAPI (go to deepapi.co to get an API key) POST /v1/research/deep. Builds a rigorous one-paragraph research prom",
+      "deepapi": true
+    },
+    {
+      "path": "skills/research-and-web/deepapi/SKILL.md",
+      "name": "deepapi",
+      "desc": "Use DeepAPI for all regular web searches (POST /v1/search/web) and for any deep research you perform (POST /v1/research/deep), instead of built-in search or res",
+      "deepapi": true
+    },
+    {
+      "path": "skills/research-and-web/online-shopping/SKILL.md",
+      "name": "online-shopping",
+      "desc": "'Research any online purchase with DeepAPI \u2014 fair-price checks, best deals, where to buy, shop trust. Load whenever the user is shopping or buying anything onli",
+      "deepapi": true
+    },
+    {
+      "path": "skills/research-and-web/pi-web-search/SKILL.md",
+      "name": "pi-web-search",
+      "desc": "ONLY for Pi Agents \u2014 all other agents have their own web tools. How Pi accesses the web via the pi-web-access package \u2014 search, fetch URLs/PDFs/YouTube/GitHub. ",
+      "deepapi": true
+    },
+    {
+      "path": "skills/research-and-web/research-prompt/SKILL.md",
+      "name": "research-prompt",
+      "desc": "Write a single-paragraph Deep Research prompt to hand to a human researcher (or a deep-research AI). Use when the user wants a research brief, a \"deep research ",
+      "deepapi": true
+    },
+    {
+      "path": "skills/research-and-web/youtube-transcript/SKILL.md",
+      "name": "youtube-transcript",
+      "desc": "Use whenever the user needs the transcript of a YouTube video \u2014 fetching, extracting, downloading, or pulling captions/subtitles/transcript text from a YouTube ",
+      "deepapi": true
+    }
+  ],
+  "endpoints": {
+    "/v1/health": [
+      "hooks/test-guard.sh",
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "/v1/research/deep": [
+      "skills/research-and-web/deep-research/SKILL.md"
+    ],
+    "/v1/scrape/youtube/transcript": [
+      "skills/research-and-web/youtube-transcript/SKILL.md"
+    ],
+    "/v1/search/web": [
+      "skills/research-and-web/online-shopping/SKILL.md",
+      "skills/research-and-web/pi-web-search/SKILL.md"
+    ],
+    "DELETE /v1/email/domains/{domainId}": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "DELETE /v1/memory/{path}": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/balance": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/email/domains": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/email/drafts": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/email/identities": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/email/messages": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/health": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/me": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/memory": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/memory/{path}": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/requests": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/requests/{requestId}": [
+      "skills/research-and-web/deepapi/SKILL.md",
+      "skills/research-and-web/online-shopping/SKILL.md"
+    ],
+    "GET /v1/usage": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "GET /v1/x/connection": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/deploy": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/email/domains": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/email/domains/{domainId}/verify": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/email/domains/{domainId}/verify.": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/email/drafts/{draftId}/send": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/email/identities": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/email/send": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/generate/image": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/memory/{path}": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/research/deep": [
+      "skills/research-and-web/deepapi/SKILL.md",
+      "skills/research-and-web/online-shopping/SKILL.md",
+      "skills/research-and-web/research-prompt/SKILL.md"
+    ],
+    "POST /v1/research/deep.": [
+      "skills/research-and-web/deep-research/SKILL.md"
+    ],
+    "POST /v1/scrape/": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/github": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/github/commits": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/github/contents": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/github/issues": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/github/profile": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/github/pulls": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/github/repo": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/github/search": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/instagram/comments": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/instagram/posts": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/instagram/profile": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/linkedin": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/linkedin/company": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/linkedin/jobs": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/linkedin/people": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/linkedin/posts": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/linkedin/profile": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/pdf": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/twitter": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/twitter/replies": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/twitter/search": [
+      "skills/research-and-web/deepapi/SKILL.md",
+      "skills/research-and-web/online-shopping/SKILL.md"
+    ],
+    "POST /v1/scrape/twitter/user": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/website": [
+      "skills/research-and-web/browser-harness/SKILL.md",
+      "skills/research-and-web/deepapi/SKILL.md",
+      "skills/research-and-web/online-shopping/SKILL.md"
+    ],
+    "POST /v1/scrape/youtube/channel": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/youtube/search": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/youtube/shorts": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ],
+    "POST /v1/scrape/youtube/transcript": [
+      "skills/research-and-web/deepapi/SKILL.md",
+      "skills/research-and-web/youtube-transcript/SKILL.md"
+    ],
+    "POST /v1/search/web": [
+      "skills/research-and-web/deepapi/SKILL.md",
+      "skills/research-and-web/online-shopping/SKILL.md"
+    ],
+    "POST /v1/x/post": [
+      "skills/research-and-web/deepapi/SKILL.md"
+    ]
+  },
+  "deepapi_urls": [
+    [
+      "https://deepapi.co/credits",
+      4
+    ],
+    [
+      "https://deepapi.co",
+      3
+    ],
+    [
+      "https://deepapi.co}",
+      2
+    ],
+    [
+      "https://api.deepapi.co/v1/health",
+      1
+    ],
+    [
+      "https://deepapi.co/deepapi-skill/VERSION.txt",
+      1
+    ],
+    [
+      "https://deepapi.co/deepapi-skill/SKILL.md",
+      1
+    ],
+    [
+      "https://deepapi.co/docs",
+      1
+    ],
+    [
+      "https://deepapi.co/v1/health",
+      1
+    ],
+    [
+      "https://deepapi.co/email",
+      1
+    ],
+    [
+      "https://deepapi.co/x",
+      1
+    ],
+    [
+      "https://deepapi.co/v1/search/web",
+      1
+    ]
+  ],
+  "env_vars": [
+    [
+      "DEEPAPI_API_KEY",
+      69
+    ],
+    [
+      "DEEPAPI_KEY",
+      2
+    ],
+    [
+      "BROWSER_USE_API_KEY",
+      1
+    ],
+    [
+      "GEMINI_API_KEY",
+      1
+    ]
+  ],
+  "mention_counts": {
+    "skills/research-and-web/deepapi/SKILL.md": 83,
+    "hooks/test-guard.sh": 12,
+    "skills/research-and-web/youtube-transcript/SKILL.md": 11,
+    "skills/research-and-web/deep-research/SKILL.md": 9,
+    "skills/research-and-web/online-shopping/SKILL.md": 9,
+    "skills/research-and-web/pi-web-search/SKILL.md": 4,
+    "skills/ops-and-setup/create-readonly-db-role/SKILL.md": 1,
+    "skills/ops-and-setup/global-agent-guardrails/SKILL.md": 1,
+    "skills/research-and-web/browser-harness/SKILL.md": 1,
+    "skills/research-and-web/research-prompt/SKILL.md": 1
+  }
+}

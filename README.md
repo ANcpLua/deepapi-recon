@@ -62,14 +62,14 @@ client applies). Full raw list: [`results/endpoint-matrix.md`](results/endpoint-
 
 ## The error contract, distilled
 
-The skill documents **51 error codes** — but they aren't 51 special cases. Every
+The skill documents **52 error codes** — but they aren't 52 special cases. Every
 failed response carries the same three fields (`error.retryable`,
 `error.retryAfterSecs`, `error.hint`), so the whole table collapses to **six
 behaviours**, and the client implements all of them in ~15 lines.
 
 ```
 HTTP class     count
-502  server     ███████████████████  19   → free; back off, retry same key, check /v1/health
+502  server     ████████████████████ 20   → free; back off, retry same key, check /v1/health
 403  policy     ███████████          11   → terminal: fix identifier / ask user
 404  not-found  ███████               7   → terminal: check the id
 409  conflict   ███                   3   → poll same key, or re-GET and merge

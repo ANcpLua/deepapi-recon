@@ -191,6 +191,27 @@ Full captures in [`results/live-probes.md`](results/live-probes.md).
 
 ---
 
+## Findings — where the contract actually breaks
+
+The recon celebrates the contract, so [`FINDINGS.md`](FINDINGS.md) is the
+adversarial other half: real, `curl`-reproducible defects **in DeepAPI itself**,
+gathered the same way (public surfaces + `$0` unauthenticated probes). Six weak
+candidates were dropped for lack of evidence; four survived.
+
+| # | Finding | Severity |
+|---|---|---|
+| 1 | Wrong HTTP method → bare `405`, empty body, no `error.code`, no `Allow` | **Medium** |
+| 2 | Unmatched `/v1/*` path → HTML 404, not the JSON envelope | Low–Med |
+| 3 | `openapi.json` doesn't enumerate the 52-code error vocabulary | Low |
+| 4 | Nits — frozen spec version, validation order, `request_failed` naming | Low |
+
+#1 and #2 are outright breaks of the contract's *"every failed response carries
+`error.code`"* guarantee — the two an agent hits in normal use. Details, repro
+commands, and a [checked-and-clean](FINDINGS.md#checked-and-clean) list (endpoint
+parity, pricing parity, real scoped keys, headers) in [`FINDINGS.md`](FINDINGS.md).
+
+---
+
 ## Reproduce
 
 ```bash

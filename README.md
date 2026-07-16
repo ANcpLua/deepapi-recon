@@ -150,9 +150,9 @@ naive baseline **and** the shipped client, renders a visual job summary with
 
 | sev | rule | location |
 |---|---|---|
-| 🔴 error | `deepapi/idempotency-key-not-reused` | `tests/_naive_client.py:45` |
-| 🔴 error | `deepapi/unbounded-retry-recursion` | `tests/_naive_client.py:59` |
-| 🟠 warning | `deepapi/error-fix-ignored` | `tests/_naive_client.py:62` |
+| 🔴 error | `deepapi-client/idempotency-key-not-reused` | `tests/_naive_client.py:45` |
+| 🔴 error | `deepapi-client/unbounded-retry-recursion` | `tests/_naive_client.py:59` |
+| 🟠 warning | `deepapi-client/error-fix-ignored` | `tests/_naive_client.py:62` |
 
 ```bash
 python3 contract_audit.py --target tests/_naive_client.py --out results.sarif

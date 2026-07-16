@@ -67,7 +67,7 @@ def check_self_correct(client):
 # substring that locates the offending line in a client that FAILS the check.
 GAPS = [
     {
-        "id": "deepapi/idempotency-key-not-reused",
+        "id": "deepapi-client/idempotency-key-not-reused",
         "title": "Retry mints a new Idempotency-Key, breaking same-key idempotency",
         "severity": "high",
         "check": check_idempotency,
@@ -85,7 +85,7 @@ GAPS = [
         ),
     },
     {
-        "id": "deepapi/unbounded-retry-recursion",
+        "id": "deepapi-client/unbounded-retry-recursion",
         "title": "Unbounded retry recursion on persistent retryable errors",
         "severity": "high",
         "check": check_bounded,
@@ -99,7 +99,7 @@ GAPS = [
         "recommendation": "Bound retries with a max-attempts counter and give up with a clear error.",
     },
     {
-        "id": "deepapi/error-fix-ignored",
+        "id": "deepapi-client/error-fix-ignored",
         "title": "invalid_request self-correction (error.fix) is ignored",
         "severity": "medium",
         "check": check_self_correct,

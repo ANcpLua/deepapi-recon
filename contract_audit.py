@@ -82,9 +82,10 @@ def build_sarif(target_path, target_uri, client):
 
 def markdown(target_uri, results):
     sev_emoji = {"error": "🔴", "warning": "🟠", "note": "🟡"}
-    lines = ["## DeepAPI contract audit\n",
+    lines = ["## DeepAPI client contract audit\n",
              f"Audited `{target_uri}` against the SKILL.md error contract "
-             f"— **{len(results)} finding{'s' if len(results) != 1 else ''}**.\n",
+             f"— **{len(results)} finding{'s' if len(results) != 1 else ''}**. "
+             "These are client-side compliance gaps, not defects in DeepAPI.\n",
              "| gap | naive | fixed |", "|---|:---:|:---:|"]
     for i, g in enumerate(cc.GAPS, 1):
         n = "✅" if g["check"](cc.NAIVE) else "❌"

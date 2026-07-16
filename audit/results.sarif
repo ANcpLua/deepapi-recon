@@ -10,7 +10,7 @@
           "version": "1.0.0",
           "rules": [
             {
-              "id": "deepapi/idempotency-key-not-reused",
+              "id": "deepapi-client/idempotency-key-not-reused",
               "name": "IdempotencyKeyNotReused",
               "shortDescription": {
                 "text": "Retry mints a new Idempotency-Key, breaking same-key idempotency"
@@ -35,7 +35,7 @@
               }
             },
             {
-              "id": "deepapi/unbounded-retry-recursion",
+              "id": "deepapi-client/unbounded-retry-recursion",
               "name": "UnboundedRetryRecursion",
               "shortDescription": {
                 "text": "Unbounded retry recursion on persistent retryable errors"
@@ -60,7 +60,7 @@
               }
             },
             {
-              "id": "deepapi/error-fix-ignored",
+              "id": "deepapi-client/error-fix-ignored",
               "name": "ErrorFixIgnored",
               "shortDescription": {
                 "text": "invalid_request self-correction (error.fix) is ignored"
@@ -92,7 +92,7 @@
       },
       "results": [
         {
-          "ruleId": "deepapi/idempotency-key-not-reused",
+          "ruleId": "deepapi-client/idempotency-key-not-reused",
           "ruleIndex": 0,
           "level": "error",
           "message": {
@@ -112,11 +112,11 @@
             }
           ],
           "partialFingerprints": {
-            "deepapiContractRule/v1": "deepapi/idempotency-key-not-reused"
+            "deepapiContractRule/v1": "deepapi-client/idempotency-key-not-reused"
           }
         },
         {
-          "ruleId": "deepapi/unbounded-retry-recursion",
+          "ruleId": "deepapi-client/unbounded-retry-recursion",
           "ruleIndex": 1,
           "level": "error",
           "message": {
@@ -136,11 +136,11 @@
             }
           ],
           "partialFingerprints": {
-            "deepapiContractRule/v1": "deepapi/unbounded-retry-recursion"
+            "deepapiContractRule/v1": "deepapi-client/unbounded-retry-recursion"
           }
         },
         {
-          "ruleId": "deepapi/error-fix-ignored",
+          "ruleId": "deepapi-client/error-fix-ignored",
           "ruleIndex": 2,
           "level": "warning",
           "message": {
@@ -160,7 +160,7 @@
             }
           ],
           "partialFingerprints": {
-            "deepapiContractRule/v1": "deepapi/error-fix-ignored"
+            "deepapiContractRule/v1": "deepapi-client/error-fix-ignored"
           }
         }
       ]

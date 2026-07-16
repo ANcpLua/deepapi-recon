@@ -37,8 +37,10 @@ are fine — they still match the dynamic route.) Fix: a `/v1/*` catch-all that
 returns the envelope.
 
 Both reproduce with the one-liners above, all from public surfaces — nothing
-authenticated, nothing billed. Endpoint + pricing parity and the header/CORS
-checks all came back clean; happy to send the full recon if it's useful. Contract
-looks great overall — just flagging these two.
+authenticated, nothing billed. Full recon (repro, endpoint + pricing parity, and
+a checked-and-clean list of everything that came back fine):
+https://github.com/ANcpLua/deepapi-recon — the two findings above are written up
+in [`FINDINGS.md`](https://github.com/ANcpLua/deepapi-recon/blob/main/FINDINGS.md).
+Contract looks great overall — just flagging these two.
 
 Thanks!

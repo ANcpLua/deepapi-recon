@@ -17,6 +17,3 @@ audit-summary.md
 
 # JetBrains IDE
 .idea/
-
-# committed sample of the CI audit output
-!audit/

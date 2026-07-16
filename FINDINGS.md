@@ -1,7 +1,7 @@
 # DeepAPI — findings that need fixing
 
 Issues in **DeepAPI itself** (not in this repo, and not in the naive client the
-[contract audit](audit/SUMMARY.md) grades). Everything here is evidenced: each
+[contract audit](contract_audit.py) grades). Everything here is evidenced: each
 finding has a one-line `curl` you can rerun. Nothing is inferred.
 
 **Method.** Public contract surfaces (`llms.txt`, `openapi.json`, `docs/*.md`,

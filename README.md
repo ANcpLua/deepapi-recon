@@ -161,9 +161,10 @@ python3 contract_audit.py --target deepapi_client.py          # → clean
 
 The three baseline findings are live in the repo's
 [**Security tab**](https://github.com/ANcpLua/deepapi-recon/security/code-scanning)
-(2 high, 1 medium, anchored to `tests/_naive_client.py`). A committed sample of
-the job summary and the emitted SARIF also lives in [`audit/`](audit/)
-([SUMMARY.md](audit/SUMMARY.md) · [results.sarif](audit/results.sarif)).
+(2 high, 1 medium, anchored to `tests/_naive_client.py`). The rendered job summary
+and the emitted SARIF are attached as artifacts to every
+[workflow run](https://github.com/ANcpLua/deepapi-recon/actions/workflows/contract-audit.yml)
+— regenerated live, so there's no stale copy committed to the tree.
 
 > Note: code-scanning upload is free on public repos; on a **private** repo it
 > needs GitHub Advanced Security, so the workflow keeps that step best-effort —

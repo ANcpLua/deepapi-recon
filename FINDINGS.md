@@ -64,6 +64,7 @@ signal.
 $ curl -i https://deepapi.co/v1/nope
 HTTP/2 404
 content-type: text/html; charset=utf-8
+x-matched-path: /404                     # fell through to the platform 404 route
 <!DOCTYPE html><html …>   # the Next.js/Vercel 404 page, not the envelope
 ```
 

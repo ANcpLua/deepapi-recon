@@ -20,12 +20,14 @@ Error-envelope guarantee has two holes: `405` (wrong method) and unmatched
 ## Body
 
 Hey David — I mapped the DeepAPI contract from the public skill files and probed
-production unauthenticated (no key, nothing billed). The error design is genuinely
-good: every response carries `error.code` / `retryable` / `retryAfterSecs` /
-`hint`, `invalid_request` ships a `fix` an agent can rebuild from, failed calls
-report `debitMicrousd: null`, and the scoped-key model is real. An agent can
-branch on `error.code` and self-correct — which is exactly why these two gaps
-sting: they're the cases where that machinery gets nothing back.
+production unauthenticated (no key, nothing billed). *(Probed 2026-07-16 at
+`skillVersion c371bb41c769` from `/v1/health`; both one-liners below still
+reproduce as of now.)* The error design is genuinely good: every response carries
+`error.code` / `retryable` / `retryAfterSecs` / `hint`, `invalid_request` ships a
+`fix` an agent can rebuild from, failed calls report `debitMicrousd: null`, and
+the scoped-key model is real. An agent can branch on `error.code` and
+self-correct — which is exactly why these two gaps sting: they're the cases where
+that machinery gets nothing back.
 
 **1. Wrong HTTP method → bare `405`, empty body, no `error.code`, no `Allow`.**
 
@@ -36,8 +38,9 @@ x-matched-path: /v1/search/web
 # …no Allow header, no content-type, empty body
 ```
 
-The route matches (`x-matched-path` confirms it) — the handler rejects the method
-with a bare `405`. Two things break at once:
+The route matches (that `x-matched-path` confirms it) — so it's the handler
+rejecting the method with a bare `405`, not an unregistered route. Two things
+break at once:
 
 - The envelope guarantee (`llms.txt`: *"Every failed response carries
   `error.code` …"*) — no `code`, so an agent can't branch or self-correct.
@@ -56,6 +59,7 @@ agent gets an empty body and no signal.
 $ curl -i https://deepapi.co/v1/nope
 HTTP/2 404
 content-type: text/html; charset=utf-8
+x-matched-path: /404                     # fell through to the platform 404 route
 <!DOCTYPE html><html …>        # the Next.js/Vercel 404 page, not the envelope
 ```
 
